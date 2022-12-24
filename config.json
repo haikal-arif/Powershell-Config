@@ -1,0 +1,91 @@
+{
+  "$schema": "schema.json",
+  "version": 2,
+  "console_title_template": "{{ if .Root }}\u26a1{{end}} {{ .PWD }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#100e23",
+          "background": "#ffffff",
+          "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}@{{ .HostName }} ",
+          "properties": {
+            "default_user_name": "greg",
+            "display_default": false,
+            "display_host": true
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#100e23",
+          "background": "#91ddff",
+          "template": " {{ .Path }} ",
+          "properties": {
+            "folder_icon": "\u2026",
+            "folder_separator_icon": "\\",
+            "max_depth": 3,
+            "style": "agnoster_short",
+            "windows_registry_icon": "<#cc00cc>\ue5fc</>"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#193549",
+          "background": "#95ffa4",
+          "template": "{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
+          "properties": {
+            "fetch_status": true
+          }
+        },
+        {
+          "type": "exit",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#006100",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#ff8080{{ end }}"
+          ],
+          "template": " {{ if gt .Code 0 }}\uf468 {{ .Code }}{{ else }}\uf62b{{ end }} ",
+          "properties": {
+            "always_enabled": false
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#30004e",
+          "template": " \ufa1a{{ .FormattedMs }} ",
+          "properties": {
+            "style": "austin",
+            "threshold": 100
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#007ACC",
+          "template": "{{if .Root}}<#ffe9aa>\uf0e7</>{{else}}>{{end}} "
+        }
+      ],
+      "newline": true
+    }
+  ]
+}

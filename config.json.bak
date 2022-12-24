@@ -1,0 +1,95 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{ if .Root }}\u26A1{{end}} {{ .Path }}",
+  "blocks": [
+    {
+		  "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#100e23",
+          "background": "#ffffff",
+          "properties": {
+            "display_host": true,
+            "default_user_name": "greg",
+            "display_default": false
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#100e23",
+          "background": "#91ddff",
+          "properties": {
+            "folder_icon": "\u2026",
+            "windows_registry_icon": "<#cc00cc>\ue5fc</>",
+            "folder_separator_icon": "\\",
+            "style": "agnoster_short",
+            "max_depth": 7,
+            "enable_hyperlink": true
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#193549",
+          "background": "#95ffa4",
+          "properties": {
+            "display_status": true
+          }
+        },
+        {
+          "type": "exit",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#006100",
+          "properties": {
+            "error_icon": "\uF468",
+            "error_color": "#ff8080",
+            "always_numeric": true,
+            "color_background": true,
+            "always_enabled": false,
+            "success_icon": "\uF62B"
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#30004e",
+          "properties": {
+            "threshold": 100,
+            "style": "austin",
+            "prefix": " \uFA1A"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#007ACC",
+          "properties": {
+            "prefix": "",
+            "text": "{{if .Root}}<#ffe9aa>\uF0E7</>{{else}}\u03BB{{end}}"
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": false
+}
