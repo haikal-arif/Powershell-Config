@@ -1,5 +1,5 @@
-$CONFIGDIR = "(Get-Item $PROFILE).Directory.fullname"
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/blueish.omp.json" | Invoke-Expression
+# $CONFIGDIR = "(Get-Item $PROFILE).Directory.fullname"
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/amro.omp.json" | Invoke-Expression
 
 Import-Module 'C:\Users\mhaikala\AppData\Local\vcpkg\scripts\posh-vcpkg'
 nvs use lts > NUL
